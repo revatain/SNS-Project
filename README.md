@@ -1,2 +1,0 @@
-# SNS-Project
-# SNS-Project
