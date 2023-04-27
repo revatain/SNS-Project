@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Notification Counter</title>
+	<style>
+		#notification-icon {
+			position: relative;
+		}
+		.notification-badge {
+			position: absolute;
+			top: 0px;
+			right: 0px;
+			padding: 7px 13px;
+			border-radius: 50%;
+			background-color: red;
+			color: white;
+			font-size: 12px;
+			font-weight: bold;
+			display: none;
+		}
+		.notification-list {
+			display: none;
+			position: absolute;
+			top: 30px;
+			right: 0;
+			background-color: white;
+			border: 1px solid black;
+			padding: 10px;
+			z-index: 1;
+		}
+		.notification-list li {
+			padding: 5px 0;
+			border-bottom: 1px solid gray;
+			list-style: none;
+		}
+		#notification-icon button {
+			position: absolute;
+			top: 5px;
+			right: 15px;
+		}
+	</style>
+</head>
+<body>
+	<div id="notification-icon">
+		<button>Notification</button>
+		<span class="notification-badge"></span>
+		<ul class="notification-list">
+			<li>You have a new notification.</li>
+		</ul>
+	</div>
+	<script>
+		const button = document.querySelector("#notification-icon button");
+		const badge = document.querySelector(".notification-badge");
+		const list = document.querySelector(".notification-list");
+		let count = 0;
+		button.addEventListener("click", () => {
+			count = 0;
+			badge.style.display = "none";
+			list.style.display = "block";
+		});
+
+		function receiveNotification() {
+			count++;
+			badge.innerText = count;
+			badge.style.display = "inline-block";
+			list.style.display = "none";
+		}
+
+		// Mock notification every 5 seconds
+		setInterval(() => {
+			receiveNotification();
+		}, 5000);
+	</script>
+</body>
+</html>

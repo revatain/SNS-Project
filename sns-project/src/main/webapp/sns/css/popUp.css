@@ -1,0 +1,17 @@
+@charset "UTF-8";
+/* 전체 스크롤바에 대한 스타일 */
+/* 스크롤바 너비와 높이를 조정하고, 스크롤바의 배경 색상을 지정합니다 */
+.popup-content1::-webkit-scrollbar {
+  width: 8px; /* 스크롤바의 너비 */
+}
+
+.popup-content2::-webkit-scrollbar-thumb {
+  height: 30%; /* 스크롤바의 길이 */
+  background: rgb(0, 128, 192); /* 스크롤바의 색상 */
+}
+
+.popup-content3::-webkit-scrollbar-track {
+  background: rgb(255, 0, 128); /*스크롤바 뒷 배경 색상*/
+}
+  
+  

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Notification Counter</title>
+	<style>
+		#notification-icon {
+			position: relative;
+		}
+		.notification-badge {
+			position: absolute;
+			top: 0px;
+			right: 0px;
+			padding: 7px 7px;
+			border-radius: 50%;
+			background-color: red;
+			color: white;
+			font-size: 7px;
+			font-weight: bold;
+			display: none;
+		}
+		.notification-list {
+			display: none;
+			position: absolute;
+			top: 30px;
+			right: 0;
+			background-color: white;
+			border: 1px solid black;
+			padding: 10px;
+			z-index: 1;
+		}
+		.notification-list li {
+			padding: 5px 0;
+			border-bottom: 1px solid gray;
+			list-style: none;
+		}
+		#notification-icon img {
+			position: absolute;
+			top: 5px;
+			right: 14px;
+			width : 33px;
+			height: 33px;
+		}
+	</style>
+</head>
+<body>
+	<div id="notification-icon">
+		<img id="notification-image" src="images/mainAlarmFalse.png" alt="Notification">
+		<span class="notification-badge"></span>
+		<ul class="notification-list">
+			<li>You have a new notification.</li>
+		</ul>
+	</div>
+	<script>
+	const image = document.querySelector("#notification-icon img");
+	const badge = document.querySelector(".notification-badge");
+	const list = document.querySelector(".notification-list");
+	const notificationItems = ["Notification 1", "Notification 2", "Notification 3"];
+	let count = 0;
+
+	image.addEventListener("click", () => {
+	  count = 0;
+	  badge.style.display = "none";
+	  list.style.display = "block";
+	  image.src = "images/mainAlarmFalse.png";
+	  list.innerHTML = notificationItems.map(item => `<li>${item}</li>`).join("");
+	});
+
+	function receiveNotification() {
+	  count++;
+	  badge.innerText = count;
+	  badge.style.display = "inline-block";
+	  list.style.display = "none";
+	  image.src = "images/mainAlarmTrue.png";
+	}
+
+	// Mock notification every 5 seconds
+	setInterval(() => {
+	  receiveNotification();
+	}, 5000);
+	</script>
+</body>
+</html>

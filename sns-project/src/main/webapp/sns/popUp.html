@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Popup with scrollbar</title>
+  <style>
+    #popup-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 9999;
+    }
+    #popup-content {
+      background-color: #fff;
+      color: #000;
+      overflow: auto;
+      width: 400px;
+      height: 600px;
+      padding: 20px;
+      box-sizing: border-box;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    #popup-content::-webkit-scrollbar {
+      width: 10px;
+    }
+    #popup-content::-webkit-scrollbar-thumb {
+      background-color: #0404B4;
+    }
+    #popup-content::-webkit-scrollbar-thumb:active {
+  	background-color: #FF0000;
+	}
+	#popup-close-btn {
+  	position: absolute;
+  	top: 10px;
+  	right: 10px;
+  	width: 20px;
+ 	height: 20px;
+  	cursor: pointer;
+  	background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjPgAa_DZzOUSyd4MiGMsY_LfuZOxshHwE7ojI4hMvwQ&s'); /* 버튼 이미지 */
+ 	background-size: contain;
+  	background-repeat: no-repeat;
+}
+    
+  </style>
+</head>
+<body>
+  <button id="open-popup">팝업 열기</button>
+  <div id="popup-overlay">
+    <div id="popup-content">
+    <div id="popup-close-btn"></div>
+      <h1>팝업 내용</h1>
+      <p>팝업 내용을 입력해주세요.</p>
+      <p>스크롤바가 생기면 색깔이 변경됩니다.</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed aliquam odio nisi, ut congue odio lobortis eget. Duis vel augue ante. Nulla nec urna eget odio faucibus luctus. Nulla facilisi. Ut sit amet luctus metus. Fusce commodo lacus dui, nec vestibulum massa tristique at. Fusce lacinia risus ac magna semper consectetur. Sed ut quam vel augue aliquet lacinia.</p>
+      <p>Sed ultrices, est eget imperdiet molestie, nibh mi fermentum leo, auctor scelerisque ante mi a ex. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Ut in risus ac orci auctor sollicitudin at ut nunc. Vivamus vel sapien sagittis, bibendum purus vitae, maximus risus. Duis non ex non tortor facilisis venenatis. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+      <p>Suspendisse euismod, sapien ac tempus tincidunt, lacus tortor aliquet lorem, ac fringilla enim leo ac lectus. Curabitur consectetur tincidunt metus, vel tincidunt quam imperdiet ac. Aenean</p>
+      <script>
+  const openPopupBtn = document.getElementById('open-popup');
+  const popupOverlay = document.getElementById('popup-overlay');
+  
+  openPopupBtn.addEventListener('click', function() {
+    popupOverlay.style.display = 'block';
+  });
+  const closePopup = function() {
+	  popupOverlay.style.display = 'none';
+	};
+
+	popupOverlay.addEventListener('click', function(event) {
+	  if (event.target === popupOverlay) {
+	    closePopup();
+	  }
+	});
+	const popupCloseBtn = document.getElementById('popup-close-btn');
+
+	popupCloseBtn.addEventListener('click', function() {
+	  popupOverlay.style.display = 'none';
+	});
+</script>
+</body>
+</html>
