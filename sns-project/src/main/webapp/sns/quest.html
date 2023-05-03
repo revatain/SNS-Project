@@ -27,7 +27,6 @@
 			background-color: white;
 			width: 1560px;
 			height: 2080px;
-			border-radius: 10px;
 			padding: 20px;
 			box-sizing: border-box;
 			overflow: scroll;
@@ -40,14 +39,6 @@
 			font-size: 30px;
 			cursor: pointer;
 			color: #aaa;
-		}
-		.quest-img {
-			position: absolute;
-			top: 50px;
-			left: 50px;
-			width: 100px;
-			height: 100px;
-			z-index: 2;
 		}
 		 /* 탐색 글자 스타일 */
 		.search-text {
@@ -79,6 +70,14 @@
 	        padding: 40px;
 	        border-radius: 10px;
    		}
+   		.image-container .icon {
+		    position: absolute;
+		    width: 34px;
+		    height: 34px;
+		    top: 40px;
+		    right: 40px;
+		    padding: 5px;
+		}
 
 	    .image-container img {
 	        width: 100%;
@@ -86,6 +85,16 @@
 	        display: block;
 	        margin-bottom: 10px;
 	    }
+
+		/* 이미지 위에 마우스 오버 효과 */
+		.image-container:hover img {
+			filter: brightness(70%);
+		}
+
+		/* 이미지 위에 마우스 오버 효과로 인한 아이콘 opacity 적용 */
+		.image-container:hover .icon {
+			opacity: 1;
+		}
 	</style>
 </head>
 <body>
@@ -100,42 +109,50 @@
 		    </div>
 		    <div class="image-container">
 		      <img src="images/20230311_210726.jpg" alt="이미지2">
+		      <img class="icon" src="images/exploreLinkCopyBtn@3x.png" alt="사진 여러장 있는 게시물">
 		    </div>
 		    <div class="image-container">
 		      <img src="images/20230311_211207.jpg" alt="이미지3">
 		    </div>
 		    <div class="image-container">
 		      <img src="images/20230311_211718.jpg" alt="이미지4">
+		      <img class="icon" src="images/exploreLinkCopyBtn@3x.png" alt="사진 여러장 있는 게시물">
 		    </div>
 		    <div class="image-container">
 		      <img src="images/20230311_212519.jpg" alt="이미지5">
 		    </div>
 		    <div class="image-container">
 		      <img src="images/20230311_212734.jpg" alt="이미지6">
+		      <img class="icon" src="images/exploreLinkCopyBtn@3x.png" alt="사진 여러장 있는 게시물">
 		    </div>
 		    <div class="image-container">
 		      <img src="images/20230311_213951.jpg" alt="이미지7">
 		    </div>
 		    <div class="image-container">
 		      <img src="images/20230318_192715.jpg" alt="이미지8">
+		      <img class="icon" src="images/exploreLinkCopyBtn@3x.png" alt="사진 여러장 있는 게시물">
 		    </div>
 		    <div class="image-container">
 		      <img src="images/20230319_183853.jpg" alt="이미지9">
 		    </div>
 		    <div class="image-container">
 		      <img src="images/20230426_200010.jpg" alt="이미지10">
+		      <img class="icon" src="images/exploreLinkCopyBtn@3x.png" alt="사진 여러장 있는 게시물">
 		    </div>
 		    <div class="image-container">
 		      <img src="images/20230426_200013.jpg" alt="이미지11">
+		      <img class="icon" src="images/exploreLinkCopyBtn@3x.png" alt="사진 여러장 있는 게시물">
 		    </div>
 		    <div class="image-container">
 		      <img src="images/20230426_201512.jpg" alt="이미지12">
+		      <img class="icon" src="images/videoicon.png" alt="동영상">
 		    </div>
 		    <div class="image-container">
 		      <img src="images/20230426_202523.jpg" alt="이미지13">
 		    </div>
 		    <div class="image-container">
 		      <img src="images/20230426_203407.jpg" alt="이미지14">
+		      <img class="icon" src="images/videoicon.png" alt="동영상">
 		    </div>
 		    <div class="image-container">
 		      <img src="images/20230426_203432.jpg" alt="이미지15">
@@ -145,6 +162,7 @@
 		    </div>
 		    <div class="image-container">
 		      <img src="images/20230426_202538.jpg" alt="이미지17">
+		      <img class="icon" src="images/videoicon.png" alt="동영상">
 		    </div>
 		    <div class="image-container">
 		      <img src="images/20230406_202250.jpg" alt="이미지18">
